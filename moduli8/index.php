@@ -3,13 +3,11 @@
   $user = "root";
   $pass = "";
 
- 
   try{
     $conn = new PDO("mysql:host=$host", $user, $pass);
-
-     $sql = "CREATE DATABASE testFatlindi";
-
-    $conn->exec($sql);
+    $conn->exec("CREATE DATABASE IF NOT EXISTS moduli8");
+    
+    $conn = new PDO("mysql:host=$host;dbname=moduli8", $user, $pass);
 
     echo("Connected");
 
